@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface SubscribedCategoriesRepository extends JpaRepository<SubscribedCategories, String> {
     List<?> findSubscribedCategoryByName(String userName);
+
     SubscribedCategories findSubscribedCategoryByNameAndUserName(String name, String userName);
 }

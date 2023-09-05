@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface FilmLandService {
 
     boolean saveUser(LoginCustomerRequest loginCustomerRequest) throws FilmLandException;
+
     boolean validateUser(LoginCustomerRequest loginCustomerRequest) throws FilmLandException;
 
     Customer getCustomerByName(String name);

@@ -1,5 +1,9 @@
 package com.filmland.constant;
 
+/**
+ * Paths for the Filmland APIs, based on which
+ * the appropriate operations are done.
+ */
 public class FilmLandPath {
 
     public static final String FILMLAND = "/filmland";

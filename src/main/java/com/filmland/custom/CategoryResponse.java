@@ -8,6 +8,11 @@ import lombok.*;
 
 import java.util.List;
 
+/**
+ * Response contains a list of
+ * available categories and
+ * subscribed categories
+ */
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter

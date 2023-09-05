@@ -20,6 +20,9 @@ import java.util.List;
 
 import static com.filmland.constant.FilmLandPath.FILMLAND;
 
+/**
+ * Rest controller for FilmLand APIs
+ */
 @RestController
 @RequestMapping(FILMLAND)
 public class FilmLandController {
@@ -40,11 +43,10 @@ public class FilmLandController {
         try {
 
             result = filmLandService.saveUser(user);
-            if(result) {
+            if (result) {
                 messageResponse = new FilmLandResponse(HttpStatus.OK.toString(), Constants.SUCCESSFULLY_CREATED);
                 return new ResponseEntity<>(messageResponse, HttpStatus.OK);
-            }
-            else {
+            } else {
                 messageResponse = new FilmLandResponse(HttpStatus.CONFLICT.toString(), Constants.EXIST);
                 return new ResponseEntity<>(messageResponse, HttpStatus.CONFLICT);
             }
@@ -60,11 +62,10 @@ public class FilmLandController {
         FilmLandResponse messageResponse;
         try {
             result = filmLandService.validateUser(user);
-            if(result) {
+            if (result) {
                 messageResponse = new FilmLandResponse(HttpStatus.OK.toString(), Constants.SUCCESSFUL_LOGIN);
                 return new ResponseEntity<>(messageResponse, HttpStatus.OK);
-            }
-            else {
+            } else {
                 messageResponse = new FilmLandResponse(HttpStatus.CONFLICT.toString(), Constants.UNSUCCESSFUL_LOGIN);
                 return new ResponseEntity<>(messageResponse, HttpStatus.CONFLICT);
             }
@@ -77,9 +78,9 @@ public class FilmLandController {
     @GetMapping(path = FilmLandPath.DETAILS)
     public ResponseEntity<CategoryResponse> getCustomerCategories(@RequestParam(value = "name") String name) {
         Customer customer = filmLandService.getCustomerByName(name);
-        String userName = customer != null? customer.getName(): "";
-        if(userName != null && !userName.isEmpty()) {
-            if(name != null) {
+        String userName = customer != null ? customer.getName() : "";
+        if (userName != null && !userName.isEmpty()) {
+            if (name != null) {
                 LOGGER.info("Categories: {} Successfully fetched all Categories",
                         categoryService.fetchAvailableCategories(userName));
                 return new ResponseEntity<>(categoryService.fetchAvailableCategories(userName), HttpStatus.OK);
@@ -96,7 +97,7 @@ public class FilmLandController {
     @PostMapping(path = FilmLandPath.SUBSCRIBE, consumes = "application/json", produces = "application/json")
     public ResponseEntity<FilmLandResponse> checkCustomerCanSubscribeACategory(@RequestBody NewSubscriptionRequest subscription, @RequestParam(value = "name") String name) {
         Customer customer = filmLandService.getCustomerByName(name);
-        String userName = customer != null? customer.getName(): "";
+        String userName = customer != null ? customer.getName() : "";
         FilmLandResponse messageResponse;
         if (!userName.isEmpty()) {
             boolean isAlreadyExists = Boolean.FALSE;
@@ -133,7 +134,7 @@ public class FilmLandController {
     @PostMapping(path = FilmLandPath.SHARESUBSCRIBE, consumes = "application/json", produces = "application/json")
     public ResponseEntity<FilmLandResponse> checkCustomerCanShareASubscription(@RequestBody ShareSubscriptionRequest shareSubscriptionRequest, @RequestParam(value = "name") String name) {
         Customer customer = filmLandService.getCustomerByName(name);
-        String userName = customer != null? customer.getName(): "";
+        String userName = customer != null ? customer.getName() : "";
         Customer registeredDetails = filmLandService.getDetailsByFriendName(shareSubscriptionRequest.getFriendName());
         FilmLandResponse messageResponse;
         if (null != registeredDetails) {

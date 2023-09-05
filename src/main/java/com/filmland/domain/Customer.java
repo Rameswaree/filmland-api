@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Objects;
 
+/**
+ * Entity class for Customer table
+ */
 @Getter
 @Setter
 @AllArgsConstructor

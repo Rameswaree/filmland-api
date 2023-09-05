@@ -10,6 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main class to start the Filmland Spring Boot application
+ */
 @SpringBootApplication
 public class FilmLandApplication implements CommandLineRunner {
 

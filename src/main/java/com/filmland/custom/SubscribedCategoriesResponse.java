@@ -7,6 +7,10 @@ import lombok.*;
 
 import java.util.Date;
 
+/**
+ * Response contains the name, remaining content
+ * price and subscribed date of the customer's subscribed categories.
+ */
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter

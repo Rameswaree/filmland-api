@@ -1,5 +1,9 @@
 package com.filmland.constant;
 
+/**
+ * Constants for the messages displayed
+ * while generating {@link com.filmland.custom.FilmLandResponse}
+ */
 public final class Constants {
 
     public static final String SUCCESSFULLY_CREATED = "User has been Successfully Registered";

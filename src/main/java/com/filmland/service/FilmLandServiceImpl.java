@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FilmLandServiceImpl implements FilmLandService {
 
@@ -39,7 +41,7 @@ public class FilmLandServiceImpl implements FilmLandService {
             Customer customer = new Customer();
             customer.setEmail(loginCustomerRequest.getEmail());
             customer.setPassword(loginCustomerRequest.getPassword());
-            Iterable<Customer> userList = filmLandRepository.findAll();
+            List<Customer> userList = filmLandRepository.findAll();
             for (Customer userLogin : userList) {
                 if (loginCustomerRequest.getEmail().equals(userLogin.getEmail())
                         && loginCustomerRequest.getPassword().equals(userLogin.getPassword())) {

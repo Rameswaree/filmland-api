@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Entity class for availableCategories table
+ */
 @Getter
 @Setter
 @AllArgsConstructor
